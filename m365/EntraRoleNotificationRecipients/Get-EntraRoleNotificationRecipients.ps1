@@ -59,10 +59,10 @@ Write-Host "Connecting to Microsoft Graph with RoleManagement.Read.All scope..."
 Connect-MgGraph -Scopes "RoleManagement.Read.All" -NoWelcome
 Write-Host "Connected to Microsoft Graph successfully."
 
-# Get all role defintions
+# Get all role definitions
 $roleDefs = Get-MgRoleManagementDirectoryRoleDefinition -All
 
-# Get all notification rules forrole management policies
+# Get all notification rules for role management policies
 $rolePolicies = Get-MgPolicyRoleManagementPolicy -Filter "scopeId eq '/' and scopeType eq 'DirectoryRole'" -ExpandProperty "Rules,EffectiveRules"
 
 # Get all role management policy assignments - linking policies to roles is done via the policy assignment
